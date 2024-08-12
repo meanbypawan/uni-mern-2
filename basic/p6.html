@@ -1,0 +1,33 @@
+<script>
+    /*
+      Logical Operator :-
+       a. && (AND)
+       b. || (OR)
+       c. ! NOT
+       -----------
+       Increment/Decrement operator
+       ++, --
+       a++
+       ++a
+
+      */
+    var a = 10;
+    var b =20;
+    var c = 30;
+    var d = 40;
+    var x = (a>b) && (++c<d) || (++a<d);
+    /*
+      var x = (a>b) && (++c<d) || (++a<d);
+              10>20
+                false && (++c<d)
+                     false || (++a<d)
+                     false || 11 < 40
+                     false || true
+                         true 
+    */
+    document.write("<br>a : "+a);
+    document.write("<br>b : "+b);
+    document.write("<br>c : "+c);
+    document.write("<br>d : "+d);
+    document.write("<br>x : "+x);
+</script>
