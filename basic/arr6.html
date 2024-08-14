@@ -1,0 +1,14 @@
+<script>
+    var arr = [
+        [1,2,3], // 0
+        [4,5,6], // 1
+        [7,8,9]  // 2
+        ];
+    //document.write(arr.length); // 3  
+    for(var rowIndex in arr){
+      for(var colIndex in arr[rowIndex]){
+        document.writeln(arr[rowIndex][colIndex]);
+      }
+      document.write("<br/>");
+    }  
+</script>
