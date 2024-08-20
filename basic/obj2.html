@@ -1,0 +1,27 @@
+<script>
+    var customerList = [
+        {id: 100, name: "A", age: 21, contact:"9009111222"},
+        {id: 101, name: "B", age: 25, contact:"9009111333"},
+        {id: 102, name: "C", age: 26, contact:"9009111444"}
+    ];
+    
+    document.write("<table width='100%' border='1'>");
+    
+    document.write("<tr>");
+    document.write("<td>Id</td>");
+    document.write("<td>Name</td>");
+    document.write("<td>Age</td>");
+    document.write("<td>Contact</td>");    
+    document.write("</tr>");   
+    for(var customer of customerList){
+        document.write("<tr>");
+        document.write("<td>"+customer.id+"</td>");
+        document.write("<td>"+customer.name+"</td>");
+        document.write("<td>"+customer.age+"</td>");
+        document.write("<td>"+customer.contact+"</td>");    
+        document.write("</tr>");   
+
+    }
+    document.write("</table>");    
+
+</script>
