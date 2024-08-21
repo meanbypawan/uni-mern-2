@@ -1,0 +1,12 @@
+<script>
+  var data = [{id: 100, name: "A", age: 21, contact:"9009111222"},{id: 101, name: "B", age: 25, contact:"9009111333"},{id: 102, name: "C", age: 26, contact:"9009111444"}];
+  
+  data  = JSON.stringify(data); // converting json into jsonstring
+  
+  data = JSON.parse(data); // converting json string into json object
+  
+  // data = [{id: 100, name: "A", age: 21, contact:"9009111222"},{id: 101, name: "B", age: 25, contact:"9009111333"},{id: 102, name: "C", age: 26, contact:"9009111444"}]
+  for(var obj of data){
+    document.write("<br>"+obj.id+" "+obj.name+" "+obj.age+" "+obj.contact);
+  }
+</script>
