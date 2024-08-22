@@ -1,0 +1,13 @@
+
+<script>
+    function add(a,b,callback){
+        document.write("Addition : "+(a+b));
+        callback(a+b);
+    }
+
+    var a = prompt("enter first value");
+    var b = prompt("enter second value");
+    add(a*1,b*1,function(n){
+        n%2 ? document.write("<br>Odd") : document.write("<br>Even");
+    });
+</script>
