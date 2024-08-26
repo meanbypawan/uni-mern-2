@@ -1,0 +1,26 @@
+<script>
+    /*
+     class Message{
+     }
+
+     var obj = new Message();
+    */
+    function Message(){
+      this.m1 = function(){
+        document.write("<br>M1 executed...");
+      }  
+      this.m2 = function(){
+        document.write("<br>M2 executed...");
+        m3();
+      }  
+      var m3 = function(){
+        document.write("<br>M3 executed....");
+      }
+    }
+
+    var obj = new Message(); // obj : {}
+    obj.m1();
+    obj.m2();
+    //obj.m3();
+    
+</script>
