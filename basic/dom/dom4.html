@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <center>
+     <img id="main" src="./images/first.jpeg" width="200px" height="200px" alt="not-found"/>
+     <br/><br/>
+     <img onclick="changeImage(this)" id="first" src="./images/second.jpeg" width="50px" height="50px" alt="not-found"/>&nbsp;&nbsp;&nbsp;&nbsp; 
+     <img onclick="changeImage(this)" id="second" src="./images/third.jpg" width="50px" height="50px" alt="not-found"/>&nbsp;&nbsp;&nbsp;&nbsp; 
+     <img onclick="changeImage(this)" id="third" src="./images/fourth.jpg" width="50px" height="50px" alt="not-found"/>&nbsp;&nbsp;&nbsp;&nbsp; 
+    
+    </center>
+   <script>
+     function changeImage(currentImage){
+       //var currentImage = document.getElementById(currentImageId);
+       var mainImage = document.getElementById("main");
+       var temp = mainImage.src;
+       mainImage.src = currentImage.src;
+       currentImage.src = temp; 
+    }
+   </script>   
+</body>
+</html>

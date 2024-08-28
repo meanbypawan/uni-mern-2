@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button onclick="changeTheme('red','blue')">Red-Blue</button>
+   <button onclick="changeTheme('green','orange')">Green-Orange</button>
+   <button onclick="changeTheme('purple','pink')">Purple-Pink</button>
+   <br/><br/> 
+   <table id="table"  width="100%" border="1">
+     <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Roll</td>
+        <td>Qualification</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+     <tr>
+        <td>1</td>
+        <td>ABC</td>
+        <td>1001ca100032</td>
+        <td>MCA</td>
+     </tr>
+   </table>
+   <script>
+     function changeTheme(firstColor,secondColor){
+        var table = document.getElementById("table");
+        var rows = table.rows;
+        for(var i=0; i<rows.length; i++){
+            if( i == 4){
+                rows[i].cells[1].innerText = "XYZ";
+            }
+            if(i%2==0)
+              rows[i].style.backgroundColor = firstColor;
+            else
+              rows[i].style.backgroundColor = secondColor;
+        }
+     }
+   </script>   
+</body>
+</html>

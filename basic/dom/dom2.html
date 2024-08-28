@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <center>
+     <img id="main" src="./images/first.jpeg" width="200px" height="200px" alt="not-found"/>
+     <br/><br/>
+     <button onclick="increaseSize()">+</button>
+     <button onclick="decraseSize()">-</button>
+   </center>
+   <script>
+     function increaseSize(){
+        var image = document.getElementById("main");
+        image.width = image.width*1 + 20;
+        image.height = image.height*1 + 20;
+     }
+     function decraseSize(){
+        var image = document.getElementById("main");
+        image.width = image.width*1 - 20;
+        image.height = image.height*1 - 20;
+     }
+   </script>   
+</body>
+</html>
