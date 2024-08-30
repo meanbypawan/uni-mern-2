@@ -27,7 +27,7 @@
             margin: 0;
         }
 
-        input[type="text"], input[type="password"]{
+        input[type="text"], input[type="password"],select{
           width: 90%;
           height: 30px;
         }
@@ -57,19 +57,100 @@
         </div>
         <div class="form-group">
             <input onkeyup="validatePassword()" id="password" type="password" placeholder="Enter password"/>
-            <span id="passwordError" style="color: white;margin-top: 20px;"></span> 
+            <span id="passwordError" style="color: white;margin-top: 20px;"></span>
+            <span id="togglePassword" onclick="togglePassword()" style="color:white; cursor: pointer; font-weight: bolder;">Show password</span> 
         </div>
         <div class="form-group">
             <input onkeyup="validateMobile()" id="mobile" type="text" placeholder="Enter mobile"/>
             <span id="mobileError" style="color: white;margin-top: 20px;"></span> 
         </div>
-        <div>
+        <div class="form-group">
+          <select onchange="validateQualification()" id="qualification">
+            <option value="0">Select qualification</option>
+            <option value="Doctorate">Doctorate</option>
+            <option value="Post graduate">Post graduate</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Under graduate">Under graduate</option>
+          </select>
+          <span id="qualificationError" style="color: white;margin-top: 20px;"></span> 
+       </div>
+       <div class="form-group" style="color:white;">
+         Male <input onchange="validateGender()" type="radio" id="rdMale" name="gender"/>
+         Female <input onchange="validateGender()" type="radio" id="rdFemale" name="gender"/>
+         <br/>
+         <span id="genderError"></span> 
+       </div> 
+       <div class="form-group">
+        <input onchange="validateProfile()" id="profile" type="file" placeholder="upload pic"/>
+        <br/>
+        <span id="profileError" style="color: white;margin-top: 20px;"></span> 
+    </div>
+       <div>
             <button onclick="return validateData()">Submit</button>
         </div>
       </form>
     </div>
    </div> 
    <script>
+    function togglePassword(){
+      var span = document.getElementById("togglePassword");
+      var password = document.getElementById("password");
+      if(span.innerText == "Show password"){
+        password.type = "text";
+        span.innerText = "Hide password";
+      }
+      else if(span.innerText == "Hide password"){
+        password.type = "password";
+        span.innerText = "Show password";
+      }
+    }
+     function validateProfile(){
+       var status = true;
+       var profile = document.getElementById("profile");
+       var profileError = document.getElementById("profileError");
+       if(profile.files[0]){
+         var name = profile.files[0].name; // college.jpeg
+         var dotIndex = name.lastIndexOf(".");
+         var fileExtension = name.substring(dotIndex);
+         if(fileExtension!=".jpeg"){
+          status = false;
+          profileError.innerHTML = "Only jpeg is allowed";
+         }
+         else
+          profileError.innerHTML = "";
+       }
+       else{
+        status = false;
+        profileError.innerHTML = "please select profile"
+       }
+
+       return status;
+     }
+      function validateGender(){
+        var status = true;
+        var rdMale = document.getElementById("rdMale").checked;
+        var rdFemale = document.getElementById("rdFemale").checked;
+        var genderError = document.getElementById("genderError");
+        if(rdMale == false && rdFemale == false){
+          status = false;
+          genderError.innerHTML = "please select gender";
+        }
+        else
+          genderError.innerHTML = "";
+        return status;
+      }
+      function validateQualification(){
+        var status = true;
+        var qualification = document.getElementById("qualification").value;
+        var qualificationError = document.getElementById("qualificationError");
+        if(qualification == "0"){
+          status = false;
+          qualificationError.innerHTML = "please select qualification";
+        }
+        else
+         qualificationError.innerHTML = "";
+        return status;
+      }
       function validateMobile(){
         var status = true;
         var mobile  = document.getElementById("mobile").value;
@@ -137,7 +218,10 @@
         var usernameStatus = validateUsername();
         var passwordStatus = validatePassword();
         var mobileStatus = validateMobile();
-        if(usernameStatus && passwordStatus && mobileStatus)
+        var qualificationStatus = validateQualification();
+        var genderStatus = validateGender();
+        var profileStatus = validateProfile();
+        if(usernameStatus && passwordStatus && mobileStatus && qualificationStatus && genderStatus && profileStatus)
           return true;
         return false;
       }
