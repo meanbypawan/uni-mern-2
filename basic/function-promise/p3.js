@@ -9,7 +9,7 @@
   task--4; // 7-min
 */
 console.log("At the start....");
-setTimeout(()=>{
+setTimeout(function(){
     eatingPizza();
 },2000);
 console.log("At the end...");
