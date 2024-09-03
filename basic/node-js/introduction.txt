@@ -1,0 +1,21 @@
+Node.JS :-
+  1. It is developed by Ryan Dahl in 2009.
+  2. Node.Js is not a programming language
+  3. Node.Js is javascript runtime enviornment
+  4. NodeJS is open source cross plaftorm server enviornment
+  5. NodeJs allow us to write javascript code outside the browser or
+     you can write js on server side.
+  6. In NodeJs, Javascript is everywhere
+  7. NodeJs application is superfase and highly scalable.
+     33% fewer line of code
+     40% fewer files
+     2*request/sec 
+     35% faster response time   
+  8. NodeJs is based on SingleThreaded Javascript Event Loop Model
+  9. NodeJs is SingleThreaded
+  10. NodeJs Application is asynchronous by default
+  11.NodeJs uses both type of library
+     a. Synchronous/Blocking 
+     b. Asynchronous/Non blocking
+  12. It is best suitable to build IO-Intensive application not
+     recomended for CPU Intensive application
