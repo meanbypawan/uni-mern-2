@@ -19,3 +19,37 @@ Node.JS :-
      b. Asynchronous/Non blocking
   12. It is best suitable to build IO-Intensive application not
      recomended for CPU Intensive application
+  -----------------------------------------------------------------
+NODE.JS Architecture :-
+  event 
+  fs
+-----------------------------------
+Module :- It is simply javascript file.
+          Module contains
+           classes
+           functions
+           data etc...
+m1.js
+  let x = 200;
+
+t1.js
+
+export
+ a. default export
+ b. named export
+
+import
+ a. default import
+ b. named import
+
+
+
+
+
+
+
+
+
+
+
+
