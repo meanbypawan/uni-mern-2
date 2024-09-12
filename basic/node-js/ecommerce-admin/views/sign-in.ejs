@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <%- include("__bootstrap_lib.ejs") %>
+        <style>
+            .form-container{
+                width: 30%;
+                height: auto;
+                box-shadow: 10px 10px 10px grey;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("__header.ejs")%>
+        <div class="container vh-100 d-flex justify-content-center align-items-center">
+            <div class="form-container">
+                <h6 class="text-center bg-danger p-2 text-white">Sign Here</h6>
+                <form class="p-2">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter email id" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Enter password" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-outline-secondary" type="submit" style="width:100%;">Submit</button>
+                    </div>
+                </form>         
+            </div>
+        </div>
+    </body>
+</html>

@@ -8,6 +8,9 @@ router.get("/home",(request,response,next)=>{
     response.render("home.ejs");
 });
 router.get("/about",(request,response,next)=>{
-    response.end("About page");
+    response.render("about.ejs");
+});
+router.get("/contact",(request,response,next)=>{
+  response.render("contact.ejs");
 });
 export default router;
