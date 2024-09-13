@@ -1,0 +1,75 @@
+MongoDB
+  Database ----> Collections------> Record/Documents
+  Creating database:-
+  
+  use ecommerce;
+  listing database
+  show dbs
+  
+  Creating collection
+  db.createCollection("user")
+  
+  listing collection
+  show collections
+  Type of Collection
+    a. capped
+    b. uncapped
+    
+  db.createCollection("employee",{capped: true,size: 1000,max:10})  
+  
+  Inserting documents
+  
+  db.employee.insert({
+     name: "W",
+     salary: 123000,
+     skill: "jquery"
+  })
+  db.employee.insert([{
+    name: "C",
+    salary: 150000,
+    skill: "reactjs"
+  },{
+    name: "D",
+    salary: 160000,
+    skill: "angular"
+  },{
+    name: "G",
+    salary: 190000,
+    skill: "c"
+  },{
+    name: "H",
+    salary: 75000,
+    skill: "cpp"
+  },{
+    name: "K",
+    salary: 195000,
+    skill: "android"
+  },
+  {
+    name: "I",
+    salary: 250000,
+    skill: "jsp"
+  }]);
+  -------------------------------------------------
+  // select * from employee
+  // select name,salary from employee;
+  db.employee.find({},{name:1,salary:1})
+  db.employee.find({},{name:1,salary:1,_id:0}).sort({name:1})
+  
+  // select * from employee limit 5
+  db.employee.find({},{name:1,salary:1,_id:0}).sort({salary:-1}).limit(5)
+  
+  // select * from employee limit 3,5
+  db.employee.find({},{name:1,salary:1,_id:0}).sort({salary:-1}).skip(3).limit(5)
+  ---------------------------------------------------------
+  // select * from employee where salary = 150000
+  db.employee.find({salary: 150000},{_id:0})
+  --------------------------------------------------
+  $gt,4gte, $lt, $lte, $eq, $ne, $and, $or
+  $group, $match, $lookup
+  
+  
+  
+  
+  
+  
