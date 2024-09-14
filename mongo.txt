@@ -1,3 +1,9 @@
+Mongo Repair:-
+ sudo rm /var/lib/mongodb/mongod.lock
+ sudo mongod --dbpath /var/lib/mongodb/ --repair
+ sudo mongod --dbpath /var/lib/mongodb/ --journal
+
+
 MongoDB
   Database ----> Collections------> Record/Documents
   Creating database:-
@@ -65,8 +71,70 @@ MongoDB
   // select * from employee where salary = 150000
   db.employee.find({salary: 150000},{_id:0})
   --------------------------------------------------
-  $gt,4gte, $lt, $lte, $eq, $ne, $and, $or
+  $gt,$gte, $lt, $lte, $eq, $ne, $and, $or
   $group, $match, $lookup
+  -----------------------------------------------------------
+  select * from employee where salary > 100000
+  db.employee.find({salary:{$gt:100000}},{_id:0})
+  ---------------------------------------------------------
+  select * from employee where salary >= 70000 and salary <= 130000
+  db.employee.find({
+    $and:[{salary:{$gte:70000}},{salary:{$lte:130000}}]
+  })
+  
+  db.user.find({
+    $and: [{email: ''},{password: ''}]
+  })
+  db.employee.find({
+    $or:[{skill: 'java'},{skill: 'reactjs'}]
+  })
+  ---------------------------------------------------------------------------
+  db.employee.find().sort({salary:-1}).limit(1).toArray()[0].salary
+  
+  db.employee.find({
+    salary: db.employee.find().sort({salary:-1}).limit(1).toArray()[0].salary
+  })
+-------------------------------------------------------------------
+	db.employee.find({
+	  salary:{
+		 $lt: db.employee.find().sort({salary:-1}).limit(1).toArray()[0].salary
+	  }
+	}).sort({salary:-1}).limit(1).toArray()[0].salary
+	
+	db.employee.find({
+	  salary: db.employee.find({
+	     salary: {
+	      $lt: db.employee.find().sort({ salary: -1 }).limit(1).toArray()[0].salary
+	    }
+	    }).sort({ salary: -1 }).limit(1).toArray()[0].salary
+	})
+-----------------------------------------------------------------
+   db.employee.update(
+   {_id:ObjectId("66e4247d153efab293bcaff2")},
+   {$set:{salary:130000, skill: 'css'}});
+   
+   db.employee.update(
+   {salary:{$gte:170000}},
+   {$set:{skill:'java'}},
+   {multi: true})
+   db.employee.update(
+     {salary:{$gte:170000}},
+     {$set: {batchNo: 1}},
+     {multi: true}
+   )
+-------------------------------------------------
+db.employee.update(
+  {_id:ObjectId("66e42324153efab293bcafe9")},
+  {$unset:{age:1}}
+)
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
