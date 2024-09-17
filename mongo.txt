@@ -127,7 +127,67 @@ db.employee.update(
   {_id:ObjectId("66e42324153efab293bcafe9")},
   {$unset:{age:1}}
 )
-  
+ -------------------------------
+ category
+ {
+   slug: '',
+   url: '',
+   name: 'c1'
+ } 
+ product
+ {
+   title: '',
+   price:43434,
+   brand: '',
+   category: 'c1'
+ } 
+ -----------------------------------
+ aggregate pipe line
+ Data ===> Filter===> Add new field===> Projection
+ db.employee.find() ===> Data
+ db.employee.aggregate([]); ===> Data
+ db.employee.aggregate([
+  {
+    $match:{salary:{$gte:100000}}
+  },
+  {
+    $project:{name:1,salary:1,_id:0}
+  }
+ ]) 
+----------------
+category {slug: 'beauty'}
+product {category: 'beauty'}
+
+db.category.aggregate([
+   {
+      $lookup:{
+         from: "product",
+         localField: "slug",
+         foreignField: "category",
+         as: "productDetails"
+      }
+   },
+   {
+     $match:{slug: "beauty"}
+   }
+])
+------------------
+db.employee.getIndexes()
+db.employee.find({name: "X"}).explain("executionStats");
+db.employee.createIndex({name: 1})
+db.employee.dropIndex({name: 1})
+----------------------------------------------------------------------------
+
+
+
+express-Application<------Mongoose------>MongoDB
+
+Hibernate (ORM Tool)
+Object<------------------------> Database Table
+-----------------------------------------------------------
+ODM(Object Document Mapper) Tool
+{} ------------------> document
+
   
   
   
