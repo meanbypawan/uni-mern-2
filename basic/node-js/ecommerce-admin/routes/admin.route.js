@@ -3,7 +3,7 @@ import db from "../db/dbConfig.js";
 import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
-// http://localhost:3000/admin/sign-in
+
 router.get("/sign-in",(request,response,next)=>{
   return response.render("sign-in.ejs",{isLoggedIn: request.session.isLoggedIn});
 });
@@ -26,5 +26,11 @@ router.post("/sign-in",(request,response,next)=>{
   .catch(err=>{
     console.log(err);
   });
+});
+router.post("/signout",(request,response,next)=>{
+  request.session.isLoggedIn = false;
+  request.session.currentUser = null;
+  request.session.destroy();
+  return response.redirect("/admin/sign-in");
 });
 export default router;

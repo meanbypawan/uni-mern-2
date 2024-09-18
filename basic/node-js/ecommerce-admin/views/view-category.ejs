@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include("__bootstrap_lib.ejs") %>
+</head>
+<body>
+   <%- include("__header.ejs") %>
+<br>
+
+<div class="container">
+  <table class="table">
+    <thead>
+        <tr>
+            <th>S.no</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let index in categoryList){%>
+          <tr>
+            <td><%=index*1+1%></td>
+            <td><%=categoryList[index].category%></td>
+            <td>
+                <button class="btn btn-outline-primary">Edit</button>
+            </td>
+            <td>
+               <a onclick="return window.confirm('do you want to delete it ?')" href="/category/delete/<%=categoryList[index]._id%>"> 
+                <button class="btn btn-outline-danger">Delete</button>
+              </a>
+            </td>
+          </tr>
+        <%}%>    
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

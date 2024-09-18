@@ -18,10 +18,18 @@
       </li>
       <%}else{%>
       <li class="nav-item"></li>
+        <a class="nav-link" href="/category/add">Add-category</a>
+      </li>  
+      <li class="nav-item"></li>
+        <a class="nav-link" href="/category/view">View-category</a>
+      </li>  
+      <li class="nav-item"></li>
         <a class="nav-link" href="/product/add">Add-product</a>
       </li>
       <li class="nav-item"></li>
-        <a class="nav-link" href="#">Sign out</a>
+        <form action="/admin/signout" method="post">
+          <button type="submit" class="btn btn-primary">Sign out</button>
+        </form>
       </li>
       <%}%>
     </ul>

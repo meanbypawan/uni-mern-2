@@ -2,6 +2,7 @@ import express from "express";
 import IndexRouter from "./routes/index.route.js";
 import AdminRouter from "./routes/admin.route.js";
 import ProductRouter from "./routes/product.route.js";
+import CategoryRouter from "./routes/category.route.js";
 import bodyParser from "body-parser";
 import session from "express-session";
 const app = express();
@@ -18,6 +19,7 @@ app.use("/admin",AdminRouter);
 
 // http://localhost:3000/product/add
 app.use("/product",ProductRouter);
+app.use("/category",CategoryRouter);
 
 app.listen(3000,()=>{
     console.log("Server Running at http://localhost:3000");
