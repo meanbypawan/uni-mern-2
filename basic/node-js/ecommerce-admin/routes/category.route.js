@@ -39,4 +39,22 @@ router.get("/delete/:id",auth,(request,response,next)=>{
     console.log(err);
   })
 });
+router.get("/edit/:id",auth,(request,response,next)=>{
+   let id = request.params.id;
+   db.collection("category").findOne({_id: new mongoose.Types.ObjectId(id)}).then(result=>{
+     console.log(result);
+     return response.render("edit-category.ejs",{isLoggedIn: request.session.isLoggedIn,category:result});
+   }).catch(err=>{
+    console.log(err);
+   })
+});
+router.post("/edit",auth,(request,response,next)=>{
+  let {id,category} = request.body;
+  db.collection("category").updateOne({_id: new mongoose.Types.ObjectId(id)},{$set:{category}}).then(result=>{
+    return response.redirect("/category/view");
+  }).catch(err=>{
+    console.log(err);
+  })
+  
+});
 export default router;
