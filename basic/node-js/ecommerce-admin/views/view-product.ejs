@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include("__bootstrap_lib.ejs") %>
+</head>
+<body>
+   <%- include("__header.ejs") %>
+<br>
+
+<div class="container">
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Brand</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let product of productList){%>
+          <tr>
+            <td><%=product._id%></td>
+            <td>
+                <img src="/images/<%=product.productImage%>" width="100px" height="100px"/>
+            </td>
+            <td><%=product.title%></td>
+            <td><%=product.brand%></td>
+            <td><%=product.price%></td>
+          </tr>
+        <%}%>    
+    </tbody>
+    
+</div>
+
+</body>
+</html>

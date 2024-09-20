@@ -187,6 +187,41 @@ Object<------------------------> Database Table
 -----------------------------------------------------------
 ODM(Object Document Mapper) Tool
 {} ------------------> document
+--------------------------------------------------------------------
+Backend API[REST API]
+
+// Be A Programmer
+// Firechat in android ==> Whatapp
+
+E-commerce[Flipkart] ----> Database
+  Web-application[Browser]
+  Android Mobile [Flipkart Mobile] 
+  IOS [IOS App]
+-------------------------------------------------------
+  Front-endApplication					BackendApplication
+     ReactJs								 Node application
+   client application<------API------->Server Application
+                          Data
+   
+   XML(Tag based) {Extensible Markup Language}
+   product {title:"A",price:100, brand: "B"}
+   <product>
+      <title>A</title>
+      <price>100</price>
+      <brand>B</brand>
+   </product>
+   JSON{Javascript Object Notation}
+   {"title":"A","price":100, "brand": "B"}                       
+---------------------------------------------------------------------------------
+   API :-
+     http://localhost:3000/category/list ===> [{},{}]
+     http://localhost:3000/product/list ====>[{},{}]
+
+
+
+
+
+
 
   
   

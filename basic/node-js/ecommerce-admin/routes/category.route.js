@@ -55,6 +55,12 @@ router.post("/edit",auth,(request,response,next)=>{
   }).catch(err=>{
     console.log(err);
   })
-  
+});
+// http://localhost:3000/category/list
+router.get("/list",(request,response)=>{
+  db.collection("category").find().toArray()
+  .then(result=>{
+    return response.status(200).json({categoryList: result});
+  })
 });
 export default router;
