@@ -1,7 +1,6 @@
 // user.model.js
 // user(email,contact,age,gender) user-schema
 import mongoose from "mongoose";
-
 const userSchema = new mongoose.Schema({
     name: String,
     email:{
