@@ -1,8 +1,12 @@
 // user.model.js
 // user(email,contact,age,gender) user-schema
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+
 const userSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String
+    },
     email:{
         type: String,
         required: true,
@@ -10,31 +14,29 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        required: true
+        required: true,
+        set: (v)=>{
+          let saltKey =  bcrypt.genSaltSync(10);
+          let encryptedPassword = bcrypt.hashSync(v,saltKey);
+          return encryptedPassword;
+        }
     },
     contact:{
-        type: Number,
-        required: true
+        type: String,
+        required: true,
+        set: (v)=>{
+            return "+91"+v;
+        }
     },
     age:Number,
     gender:String
-});
+},{versionKey: false},{ toJSON: { getters: true } });
 
-//                                  singular ---> plural := users
 export const User = mongoose.model("user",userSchema);
-/*
-  Mongoose model represent data in a application. With the
-  help of schema we can define structure of document.
 
-  Mongoose Model turn model into the model class and it also
-  provide interface to interace with the database.
-
-  User.create({}) ---> static
-  User.find()
-  -.....
-  ......
-*/
-
+User.checkPassword = (password,encryptedPassword)=>{
+    return bcrypt.compareSync(password,encryptedPassword);
+}
 
 
 
