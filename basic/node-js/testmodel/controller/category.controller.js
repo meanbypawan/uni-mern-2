@@ -1,4 +1,12 @@
 import { Category } from "../model/category.model.js"
+export const getCategory = (request,response,next)=>{
+    Category.findOne({_id: request.params.id})
+    .then(result=>{
+        return result ? response.status(200).json({category: result}) : response.status(404).json({error: "Requested resource not found | Id not found"});
+    }).catch(err=>{
+        return response.status(500).json({error: "Internal Server Error"});
+    });
+}
 export const deletCategory = (request,response,next)=>{
     let id = request.params.id;
     Category.deleteOne({_id: id})
