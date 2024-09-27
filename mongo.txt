@@ -216,9 +216,21 @@ E-commerce[Flipkart] ----> Database
    API :-
      http://localhost:3000/category/list ===> [{},{}]
      http://localhost:3000/product/list ====>[{},{}]
-
-
-
+-----------------------------------------------------------------------------------------
+  user :-   /user/signup
+           /user/signin
+  category : /category/list
+             /category/:id  --GET
+             /category/:id  --GET
+                      
+  products :---- /product/list  --> GET
+                /product/:id   --> GET
+  -------------------------------------------------------
+  cart :-     /cart/add-to-cart  ==> POST {userId:'', productId: ''} 
+             /cart/remove-from-cart ==>POST {userId: '',productId:''}
+             /cart/list/:userId ------> GET
+             
+  
 
 
 
