@@ -2,6 +2,8 @@ import { validationResult } from "express-validator";
 import { User } from "../model/user.model.js"
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 export const fetchUser = (request,response,next)=>{
   User.find()
   .then(result=>{
@@ -39,6 +41,6 @@ export const signUpAction = async (request,response,next)=>{
 }
 const generateToken = (userId)=>{
     let payload = {subject: userId}; 
-    let token = jwt.sign(payload,"rerieordsfldferecvcvcvcbmveroreor");
+    let token = jwt.sign(payload,process.env.SECRET_KEY);
     return token;
 }

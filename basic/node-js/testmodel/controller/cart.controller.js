@@ -1,4 +1,16 @@
 import { Cart } from "../model/cart.model.js";
+export const removeFromCart = (request,response,next)=>{
+  let {userId, productId} = request.body;
+  Cart.updateOne({userId},{$pull:{cartItems:{productId}}})
+  .then(result=>{
+    return result.modifiedCount ? response.status(200).json({message: "Item removed from cart"}) : response.status(404).json({
+      error :"Requested resouce not available | Product Id Not Found"
+    });
+  }).catch(err=>{
+    console.log(err);
+    return response.status(500).json({error: "Internal Server Error.."});
+  })
+}
 export const fetchCart = (request,response,next)=>{
     Cart.findOne({userId: request.params.userId}).populate("cartItems.productId")
     .then(result=>{
