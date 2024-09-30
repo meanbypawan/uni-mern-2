@@ -1,0 +1,42 @@
+Reconsilition :-- React Fiber
+HTML,CSS,BS,JS,ReactJS
+Js->NodeJs->Express
+ReactJs :-
+  1. It is developed by Facebook
+  2. ReactJs is javascript Library
+  3. It is used to develop fron-end / Client application
+  4. Mainly used to develop Single Page Application[WEB]
+  
+  Angular v/s ReactJS
+  5. Component Based Architecture
+  6. Virtual DOM :- It is copy of Actual DOM Maintain in Browser Memory
+  7. ReactJs is fast 
+  8. Component :- It represent UI / It is part Of UI
+                  Header-Component 
+                  Footer-Component
+                  Main-Component
+  9. React Application Proide one component by default is calld Root Component [App.js]
+  10. Component :-
+       a. State less component [functional Component]--. JS function
+       b. State full component [class component] --- Js class               
+       Before 16.8
+       After/From 16.8
+       HOOKS --> Only work with Functional Component..
+       Functional + Hooks = State full component
+       Class Component is completyl deprecated....
+       useState()
+       useReducer()
+       useCallback()
+       useMemo()
+       useEffect()
+       useContext()
+       useSelect()
+       useRef()
+       useLocation()
+       -------------
+11.   npx create-react-app testapp
+----------------------------------------------------
+index.html<----------index.js--------------->App.js
+
+
+
