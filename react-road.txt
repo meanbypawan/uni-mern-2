@@ -1,0 +1,33 @@
+Class Comp
+Functional
+ | state
+ props
+ useState
+ useReducer
+ useRef
+ map,filter,find,findIndex
+ JSX, style, class
+ ------------------------------------
+ Routing
+  App.js [Root Component]
+   |----Routing Configuration
+ 
+    /home --> HomeComponent
+    /about---> AboutComponent
+    /contact --> ContactComponent
+ -----------------------------------------------------
+  Life cycle in functional component....
+   1. useEffect(()=>{});
+   2. useEffect(()=>{},[]); // componentDidMount()
+   3. useEffect(()=>{},[counter]); // componentDidUpdate()
+   4. useEffect(()=>{
+        return ()=>{ // componentWillUnMount()
+           
+        }
+      }); 
+ 
+ 
+ 
+ 
+ 
+ 
