@@ -7,6 +7,7 @@ function Header(){
         <Link to="/about"><span>About us</span></Link>
         <Link to="/contact"><span>Contact us</span></Link>
         <Link to="/gallery"><span>Gallery</span></Link>
+        <Link to="/category"><span>Categories</span></Link>
         <Link to="/sign-in"><span>Sign-in</span></Link>
       </div>
     </>

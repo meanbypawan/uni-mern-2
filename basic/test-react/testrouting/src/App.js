@@ -4,6 +4,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Gallery from "./components/Gallery";
 import SignIn from "./components/SignIn";
+import Category from "./components/Category";
 
 function App(){
   return <>
@@ -13,6 +14,7 @@ function App(){
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/gallery" element={<Gallery/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
+      <Route path="/category" element={<Category/>}/>
     </Routes>
   </>
 }
