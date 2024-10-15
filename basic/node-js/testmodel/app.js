@@ -6,8 +6,10 @@ import bodyParser from "body-parser";
 import CategoryRouter from "./routes/category.route.js";
 import ProductRouter from "./routes/product.route.js";
 import CartRouter from "./routes/cart.route.js";
+import cors from "cors";
 mongoose.connect("mongodb://localhost:27017/ecommerce")
 .then(result=>{
+  app.use(cors());
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());  
   app.use("/user",UserRouter);  
