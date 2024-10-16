@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 function Product({productList,setProductList}){
+    const navigate = useNavigate();
+    
     return <>
      <div className="container mt-3">
       <div className="row">
@@ -8,7 +12,7 @@ function Product({productList,setProductList}){
            <p>{product.title}</p>
            <h4><span className="text-success">{product.price}</span> Rs.
            </h4>
-           <button className="btn btn-outline-secondary mb-2" style={{width:"90%"}}>View more</button>
+           <button onClick={()=>navigate(`/view-more/${product._id}`)} className="btn btn-outline-secondary mb-2" style={{width:"90%"}}>View more</button>
            </div>
         </div>)}
       </div>

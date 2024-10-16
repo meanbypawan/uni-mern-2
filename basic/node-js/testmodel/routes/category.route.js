@@ -3,7 +3,7 @@ import { fetchCategory, saveInBulk, save, deletCategory, getCategory } from "../
 import { auth } from "../middleware/auth.js";
 const router = express.Router();
 router.post("/save-in-bulk",auth,saveInBulk);
-router.get("/list",auth,fetchCategory);
+router.get("/list",fetchCategory);
 router.post("/save",auth,save);
 router.delete("/:id",auth,deletCategory);
 router.get("/:id",auth,getCategory);

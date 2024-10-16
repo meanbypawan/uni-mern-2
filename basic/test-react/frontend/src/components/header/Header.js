@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CategoryContext } from "../../App";
 
 function Header() {
+    let {categoryList} = useContext(CategoryContext);
     return <>
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
             <a className="navbar-brand text-white" href="#">Frontend</a>
@@ -18,11 +21,10 @@ function Header() {
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Categories
                         </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#">Action</a>
-                            <a className="dropdown-item" href="#">Another action</a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{zIndex:"99"}}>
+                            {categoryList.map((category,index)=><a className="dropdown-item" href="#" key={index}>{category.name}</a>)}
                             <div className="dropdown-divider"></div>
                         </div>
                     </li>
