@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CategoryContext } from "../../App";
 
 function Header() {
     let {categoryList} = useContext(CategoryContext);
+    const navigate = useNavigate();
     return <>
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
             <a className="navbar-brand text-white" href="#">Frontend</a>
@@ -14,7 +15,7 @@ function Header() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <Link className="nav-link text-white">Home <span className="sr-only">(current)</span></Link>
+                        <Link to="/" className="nav-link text-white">Home <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link text-white" >About us</Link>
@@ -27,6 +28,10 @@ function Header() {
                             {categoryList.map((category,index)=><a className="dropdown-item" href="#" key={index}>{category.name}</a>)}
                             <div className="dropdown-divider"></div>
                         </div>
+                    </li>
+                    <li className="nav-item">
+                      <button onClick={()=>navigate("/sign-in")} className="sign-in-button btn" style={{border:"1px solid white"}}>Sign In</button>
+                      <button className="ml-2 bg-light btn text-dark" style={{border:"1px solid white"}}>Create account ?</button>
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">

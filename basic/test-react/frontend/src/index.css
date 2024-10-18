@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.sign-in-button{
+  color: white
+}
+.sign-in-button:hover{
+  background-color: white;
+  color: black;
+}

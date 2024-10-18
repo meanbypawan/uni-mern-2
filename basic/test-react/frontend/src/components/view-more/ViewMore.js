@@ -25,8 +25,8 @@ function ViewMore() {
     return <>
         <Header />
         <div className="container mt-3">
-            <div className="row" style={{ height: "400px", border: "1px solid black" }}>
-                <div className="col-md-6" style={{ height: "400px"}}>
+            <div className="row" style={{ height: "auto"}}>
+                <div className="col-md-6 pb-2" style={{ height: "auto",boxShadow:"10px 10px 10px grey"}}>
 
                     <div id="demo" className="carousel slide" data-ride="carousel">
                         <ul className="carousel-indicators">
@@ -56,10 +56,10 @@ function ViewMore() {
                     </div>
 
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 pb-2" style={{boxShadow:"10px 10px 10px grey"}}>
                   <div className="d-flex justify-content-between p-2"> 
                    <h5>{product?.title} <span>[{product?.brand}]</span></h5> 
-                   <h4><span className="text-success">{product?.price}</span> Rs.</h4>
+                   <h4><span className="text-success"><del className="text-danger">{product?.price}</del></span> Rs.</h4>
                   </div>
                   <hr/>
                   <p>{product?.description}</p>
@@ -67,7 +67,24 @@ function ViewMore() {
                   <p><strong>Shipping Info</strong> : {product?.shippingInformation}</p>
                   <p><strong>Return Policy</strong> : {product?.returnPolicy}</p>
                   <p><strong>Rating : </strong> <Rating ratingValue={product?.rating}/>({product?.rating})</p>
+                  <p><strong>Offer</strong> : {product?.discountPercentage} % <strong>Final price : </strong><span className="text-success" style={{fontSize:"25px",fontWeight:"bolder"}}>{(product?.price - (product?.price*product?.discountPercentage)/100).toFixed(2)} Rs.</span></p>
+                  <button style={{width:"100%"}} className="btn btn-warning">Buy Now</button>
                 </div>
+            </div>
+        </div>
+        <div className="container mt-2">
+            <div className="row">
+               {product?.reviews?.map((review,index)=><div className="col-12 border text-dark p-2" key={index}>
+                    <div className="header d-flex justify-content-between">
+                        <div className="name-email d-flex" style={{columnGap:"10px"}}>
+                            <span>{review?.reviewerName}</span>
+                            <span>{review?.reviewerEmail} <b>Rating : </b><strong className="text-primary">{review?.rating}/5</strong></span>
+                        </div>
+                        <span>{review?.date}</span>
+                    </div>
+                    <p>{review.comment}</p>
+                </div>)} 
+                
             </div>
         </div>
     </>
