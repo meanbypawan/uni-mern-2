@@ -5,6 +5,7 @@ import axios from "axios";
 import Api from "./apis/Api";
 import ViewMore from "./components/view-more/ViewMore";
 import SignIn from "./components/signin/SignIn";
+import Signup from "./components/signup/Signup";
 
 export const CategoryContext = createContext();
 function App(){
@@ -27,6 +28,7 @@ function App(){
       <Route path="/" element={<DashBoard/>}/>
       <Route path="/view-more/:id" element={<ViewMore/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
+      <Route path="/sign-up" element={<Signup/>}/>
     </Routes>
    </CategoryContext.Provider> 
   </>
