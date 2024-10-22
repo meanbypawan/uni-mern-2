@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CategoryContext } from "../../App";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../../redux-config/UserSlice";
 
 function Header() {
     let {categoryList} = useContext(CategoryContext);
     const navigate = useNavigate();
+    const {isLoggedIn} = useSelector((store)=>store.user);
+    const dispatch = useDispatch();
     return <>
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
             <a className="navbar-brand text-white" href="#">Frontend</a>
@@ -29,10 +33,13 @@ function Header() {
                             <div className="dropdown-divider"></div>
                         </div>
                     </li>
-                    <li className="nav-item">
+                    {!isLoggedIn && <li className="nav-item">
                       <button onClick={()=>navigate("/sign-in")} className="sign-in-button btn" style={{border:"1px solid white"}}>Sign In</button>
                       <button className="ml-2 bg-light btn text-dark" style={{border:"1px solid white"}}>Create account ?</button>
-                    </li>
+                    </li>}
+                    {isLoggedIn && <li className="nav-item">
+                      <button onClick={()=>dispatch(removeUser())} className="sign-in-button btn" style={{border:"1px solid white"}}>Sign out</button>
+                    </li>}
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>

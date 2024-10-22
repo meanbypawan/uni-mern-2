@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../header/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -8,6 +8,7 @@ import Rating from "../rating/Rating";
 function ViewMore() {
     const { id } = useParams();
     const [product, setProduct] = useState({});
+    const navigate = useNavigate();
     useEffect(() => {
         loadProductById();
     }, []);
@@ -68,7 +69,7 @@ function ViewMore() {
                   <p><strong>Return Policy</strong> : {product?.returnPolicy}</p>
                   <p><strong>Rating : </strong> <Rating ratingValue={product?.rating}/>({product?.rating})</p>
                   <p><strong>Offer</strong> : {product?.discountPercentage} % <strong>Final price : </strong><span className="text-success" style={{fontSize:"25px",fontWeight:"bolder"}}>{(product?.price - (product?.price*product?.discountPercentage)/100).toFixed(2)} Rs.</span></p>
-                  <button style={{width:"100%"}} className="btn btn-warning">Buy Now</button>
+                  <button onClick={()=>navigate(`/place-order/${product?._id}`)} style={{width:"100%"}} className="btn btn-warning">Buy Now</button>
                 </div>
             </div>
         </div>

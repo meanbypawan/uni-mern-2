@@ -6,6 +6,8 @@ import Api from "./apis/Api";
 import ViewMore from "./components/view-more/ViewMore";
 import SignIn from "./components/signin/SignIn";
 import Signup from "./components/signup/Signup";
+import PlaceOrder from "./components/place-order/PlaceOrder";
+import Auth from "./components/auth/Auth";
 
 export const CategoryContext = createContext();
 function App(){
@@ -29,6 +31,7 @@ function App(){
       <Route path="/view-more/:id" element={<ViewMore/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/sign-up" element={<Signup/>}/>
+      <Route path="/place-order/:id" element={<Auth><PlaceOrder/></Auth>}/>
     </Routes>
    </CategoryContext.Provider> 
   </>
