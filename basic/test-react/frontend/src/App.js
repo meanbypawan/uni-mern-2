@@ -31,7 +31,7 @@ function App(){
       <Route path="/view-more/:id" element={<ViewMore/>}/>
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/sign-up" element={<Signup/>}/>
-      <Route path="/place-order/:id" element={<Auth><PlaceOrder/></Auth>}/>
+      <Route path="/place-order" element={<Auth><PlaceOrder/></Auth>}/>
     </Routes>
    </CategoryContext.Provider> 
   </>

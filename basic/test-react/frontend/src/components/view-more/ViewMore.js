@@ -23,6 +23,9 @@ function ViewMore() {
             console.log(err);
         }
     }
+    const navigateToPlaceOrder = (product)=>{
+        navigate("/place-order",{state:{params:product}});
+    }
     return <>
         <Header />
         <div className="container mt-3">
@@ -69,7 +72,7 @@ function ViewMore() {
                   <p><strong>Return Policy</strong> : {product?.returnPolicy}</p>
                   <p><strong>Rating : </strong> <Rating ratingValue={product?.rating}/>({product?.rating})</p>
                   <p><strong>Offer</strong> : {product?.discountPercentage} % <strong>Final price : </strong><span className="text-success" style={{fontSize:"25px",fontWeight:"bolder"}}>{(product?.price - (product?.price*product?.discountPercentage)/100).toFixed(2)} Rs.</span></p>
-                  <button onClick={()=>navigate(`/place-order/${product?._id}`)} style={{width:"100%"}} className="btn btn-warning">Buy Now</button>
+                  <button onClick={()=>navigateToPlaceOrder(product)} style={{width:"100%"}} className="btn btn-warning">Buy Now</button>
                 </div>
             </div>
         </div>
