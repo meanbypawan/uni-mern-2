@@ -8,6 +8,8 @@ import SignIn from "./components/signin/SignIn";
 import Signup from "./components/signup/Signup";
 import PlaceOrder from "./components/place-order/PlaceOrder";
 import Auth from "./components/auth/Auth";
+import ForgetPassword from "./components/forget-password/ForgetPassword";
+import CreateNewPassword from "./components/create-new-password/CreateNewPassword";
 
 export const CategoryContext = createContext();
 function App(){
@@ -32,6 +34,8 @@ function App(){
       <Route path="/sign-in" element={<SignIn/>}/>
       <Route path="/sign-up" element={<Signup/>}/>
       <Route path="/place-order" element={<Auth><PlaceOrder/></Auth>}/>
+      <Route path="/forget-password" element={<ForgetPassword/>}/>
+      <Route path="/create-new-password" element={<CreateNewPassword/>}/>
     </Routes>
    </CategoryContext.Provider> 
   </>

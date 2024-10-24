@@ -1,5 +1,5 @@
 import express from "express";
-import { signInAction, signUpAction, fetchUser } from "../controller/user.controller.js";
+import { signInAction, signUpAction, fetchUser, forgetPassword, createNewPassword } from "../controller/user.controller.js";
 import { body } from "express-validator";
 const router = express.Router();
 
@@ -11,4 +11,6 @@ router.post("/signup",
  // http://localhost:3000/user/sign-in
  router.post("/sign-in",signInAction);
  router.get("/list",fetchUser);
+ router.post("/forget-password",forgetPassword);
+ router.post("/create-new-password",createNewPassword);
 export default router;

@@ -40,7 +40,7 @@ function SignIn(){
                 </div>
                 <div className="form-group">
                   <button type="submit" className="btn btn-secondary" style={{width:"100%"}}>Sign in</button>
-                  <p className="text-right" style={{fontSize:"15px"}}><span> Forget password ?</span></p>
+                  <p className="text-right" style={{fontSize:"15px"}}><span onClick={()=>navigate("/forget-password")} style={{cursor: "pointer"}}> Forget password ?</span></p>
                 </div>
                 <div className="form-group">
                     <button onClick={()=>navigate("/sign-up")} className="btn btn-outline-primary" style={{width:"100%"}}>Create new account ?</button>
