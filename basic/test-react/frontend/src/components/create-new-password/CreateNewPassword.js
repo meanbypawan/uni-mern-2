@@ -1,15 +1,18 @@
 import axios from "axios";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import Api from "../../apis/Api";
 import { toast, ToastContainer } from "react-toastify";
 
 function CreateNewPassword(){
-    const params = useParams();
+    const [params] = useSearchParams();
     const [password, setPassword] = useState();
+    const location = useLocation();
+    let queryParameters = new URLSearchParams(location.search);
     const createNewPassword = (event)=>{
       event.preventDefault();
-      let email = params.email;
+      let email = queryParameters.get("email");
+      console.log(email);
       axios.post(Api.create_new_password,{email,password})
       .then(response=>{
         toast.success("Password updated | please sign-in again");

@@ -7,8 +7,6 @@ dotenv.config();
 import nodemailer from "nodemailer";
 export const createNewPassword = async (request,response,next)=>{
   let {email,password} = request.body;
-  let saltKey = bcrypt.genSaltSync(10);
-  password = bcrypt.hashSync(password,saltKey);
   User.updateOne({email},{$set:{password}})
   .then(result=>{
     console.log(result);
@@ -57,6 +55,7 @@ export const fetchUser = (request,response,next)=>{
 export const signInAction = async (request,response,next)=>{
   try{
     let {email,password} = request.body;
+    console.log(request.body);
     let user = await User.findOne({email});
     let encryptedPassword = user?.password;
     if(!user)
